@@ -57,18 +57,24 @@ pip install torch numpy matplotlib scikit-learn
 
 O código segue um fluxo estruturado em 12 etapas principais:
 
-1.  **Inicialização e Setup**: Configuração do ambiente e *seeds* para reprodutibilidade.
-2.  **Síntese de Cenários**: Geração de objetos com vetores de 11 dimensões (Posição, Cor, Forma, Tamanho).
-3.  **Renderização**: Visualização gráfica personalizada dos objetos (Cilindros, Cones, Prismas).
-4.  **Redes Neurais (Predicados)**:
+1.  **Inicialização**: Configuração do ambiente.
+2.  **Importação de Dependências**: Carregamento das bibliotecas necessárias.
+3.  **Construção de Cenários**: Geração dos vetores de características dos objetos (11 dimensões: posição, cor, forma, tamanho).
+4.  **Renderização Espacial**: Visualização 2D dos objetos (Cilindros, Cones, Prismas, etc.).
+5.  **Camadas Neurais (Predicados):**:
     * `FeatureExtractor`: Extração de *features* diretas dos vetores.
     * `BinaryPredictor`: Rede para prever relações entre dois objetos.
     * `TernaryPredictor`: Rede para prever relações entre três objetos.
-5.  **Modelos Paramétricos**: Classificadores de magnitude (tamanho) e modelos de proximidade gaussiana.
-6.  **Lógica Fuzzy**: Definição de conectivos (`AND`, `OR`, `IMPLIES`) e quantificadores (`FORALL`, `EXISTS`) diferenciáveis.
-7.  **Definição de Axiomas**: Regras lógicas de taxonomia (ex: "Cone implica Volumoso") e exclusão (ex: "Esfera não é Cubo").
-8.  **Treinamento**: Otimização dos parâmetros baseada na maximização da satisfação da Base de Conhecimento (Sat KB).
-9.  **Avaliação**: Cálculo de métricas como F1-Score e precisão das inferências aprendidas.
+6.  **Modelos Paramétricos**:
+    * `ProximityModel`: Modelo Gaussiano para calcular proximidade.
+    * `MagnitudeClassifier`: Classificação de tamanho (Massive vs Minute).
+    * `StackabilityPredictor`: Predição de capacidade de empilhamento.
+7.  **Atributos Primitivos**: Definição dos predicados base (HasRed, ShapeSpherical, IsMassive, etc.).
+8.  **Operadores Fuzzy**: Configuração dos conectivos lógicos (AND, OR, IMPLIES, NOT) e quantificadores (FORALL, EXISTS).
+9.  **Sistema de Axiomas**:Construção da Base de Conhecimento com regras lógicas.
+10.  **Avaliação Semântica**: Cálculo da verdade semântica e satisfação da base.
+11.  **Protocolo Experimental**: Execução de ciclos de teste em ambientes distintos.
+12.  **Agregação de Métricas**: Consolidação dos resultados estatísticos.
 
 ## 🧠 Base de Conhecimento (Exemplos de Axiomas)
 
